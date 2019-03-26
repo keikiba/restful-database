@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>top page</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+  h1 { font-size:18pt; font-weight:bold; color:gray; }
+  body { font-size:13pt; color:gray; margin:5px 25px; }
+  pre { font-size:13pt; color:gray; padding:5px 10px; border:1px solid gray; }
+  tr { magin:5px; }
+  th { padding:5px; color:white; background:darkgray; }
+  td { padding:5px; color:black; background:#f0f0f0; }
+  </style>
+  <style th:include="part::frag_style"></style>
+</head>
+<body>
+
+  <h1>Page 3</h1>
+  <p th:text="#{content.title}">Helo page</p>
+  <p th:text="${datamsg}">message</p>
+  <p th:if="${check}" th:text="${id} + ' is ' + ${trueVal}">message.</p>
+  <p th:unless="${check}" th:text="${id} + ' is ' + ${falseVal}">message.</p>
+  
+  <div th:switch="${num}">
+    <p th:case="0" th:text="|num = ${num} (zero)|"></p>
+    <p th:case="1" th:text="|num = ${num} (one)|"></p>
+    <p th:case="2" th:text="|num = ${num} (two)|"></p>
+    <p th:case="3" th:text="|num = ${num} (three)|"></p>
+    <p th:case="4" th:text="|num = ${num} (four)|"></p>
+    <p th:case="5" th:text="|num = ${num} (five)|"></p>
+    <p th:case="*"> ... </p>
+  </div>
+
+  <h1>Parent content</h1>
+  <div th:include="part::frag_body">
+    <p>this is an original content. </p>
+  </div>
+
+</body>
+</html>

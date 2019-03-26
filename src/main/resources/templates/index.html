@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>top page</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <style>
+  h1 { font-size:18pt; font-weight:bold; color:gray; }
+  body { font-size:13pt; color:gray; margin:5px 25px; }
+  pre { font-size:13pt; color:gray; padding:5px 10px; border:1px solid gray; }
+  tr { magin:5px; }
+  th { padding:5px; color:white; background:darkgray; }
+  td { padding:5px; color:black; background:#f0f0f0; }
+  </style>
+</head>
+<body>
+  <h1>Helo page</h1>
+  <p class="msg" th:text="${msg}">this is Thymeleaf sample page.</p>
+
+  <h1>Page 1</h1>
+  <p th:text="${msg}">please wait...</p>
+  <form method="post" action="/">
+    <input type="text" name="text1" th:value="${value}" />
+    <input type="submit" value="Click" />
+  </form>
+
+  <h1>Page 2</h1>
+  <form method="post" action="/">
+    <div>
+      <input type="checkbox" id="check1" name="check1" />
+      <label for="check1">チェック</label>
+    </div>
+    <div>
+      <input type="radio" id="radioA" name="radio1" value="male" />
+      <label for="radioA">男性</label>
+    </div>
+    <div>
+      <input type="radio" id="radioB" name="radio1" value="male" />
+      <label for="radioB">女性</label>
+    </div>
+    <div>
+      <select id="select1" name="select1" size="4">
+        <option value="Windows">Windows</option>
+        <option value="Mac">Mac</option>
+        <option value="Linux">Linux</option>
+      </select>
+      <select id="select2" name="select2" size="4" multiple="multiple">
+        <option value="Andriod">Andriod</option>
+        <option value="iPhone">iPhone</option>
+        <option value="Winfone">Winodws Phone</option>
+      </select>
+    </div>
+    <input type="submit" value="Click" />
+  </form>
+
+  <pre th:text="${msg}">please wait...</pre>  
+
+
+  <p th:text="${new java.util.Date().toString()}"></p>
+  <p th:text="${#dates.format(new java.util.Date(), 'dd/MMM/yyyy HH:mm')}"></p>
+  <p th:text="${#numbers.formatInteger(1234,7)}"></p>
+  <p th:text="${#strings.toUpperCase('WElcome!')}"></p>
+  <!--  p th:text="'from URL parameter.... id=' + ${param.id[0] + ',name=' + param.name[0]}"></p -->
+  <p th:text="#{content.message}"></p>
+  <p th:text="#{content.jamessage}"></p>
+
+</body>
+</html>
